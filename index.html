@@ -3,65 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Technobolt Solutions | Strategic Deck</title>
+    <title>Technobolt Solutions | Investor Brief Jânio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     
     <style>
-        /* Reset e Base */
+        /* RESET & BASE */
+        * { box-sizing: border-box; }
         body { 
             background-color: #020202; 
-            color: white; 
+            color: #ffffff; 
             font-family: 'Inter', sans-serif; 
-            overflow-x: hidden;
+            min-height: 100vh;
             margin: 0;
             padding: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            background: radial-gradient(circle at top, #111 0%, #020202 100%);
+            background: radial-gradient(circle at 50% 0%, #1a1a1a 0%, #020202 100%);
         }
 
-        /* Efeito de Vidro Robusto */
+        /* GLASSMORPHISM ROBUSTO */
         .glass-panel {
-            background: rgba(20, 20, 20, 0.6);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 40px rgba(0,0,0,0.5);
         }
 
         .glass-card {
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(4px);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.1);
         }
 
-        /* Efeitos Neon */
-        .text-neon { color: #00F0FF; text-shadow: 0 0 12px rgba(0, 240, 255, 0.4); }
-        .text-profit { color: #10B981; text-shadow: 0 0 12px rgba(16, 185, 129, 0.4); }
-        .bg-neon { background-color: #00F0FF; box-shadow: 0 0 10px rgba(0, 240, 255, 0.4); }
-        .border-neon { border-color: #00F0FF; }
+        /* ANIMAÇÃO DE BARRAS */
+        @keyframes grow { from { height: 0; } }
+        .bar-animate { animation: grow 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
 
-        /* Animação de Crescimento */
-        @keyframes growUp { from { height: 0; } to { height: var(--h); } }
-        .bar-growth { animation: growUp 1.5s ease-out forwards; height: 0; }
-
-        /* Grid Responsivo Manual (Fallback) */
-        .grid-responsive {
-            display: grid;
-            gap: 20px;
-        }
-        @media (min-width: 768px) {
-            .grid-responsive { grid-template-columns: repeat(2, 1fr); }
-            .grid-kpi { grid-template-columns: repeat(4, 1fr); }
-        }
-        @media (max-width: 767px) {
-            .grid-responsive { grid-template-columns: 1fr; }
-            .grid-kpi { grid-template-columns: 1fr 1fr; }
-        }
+        /* UTILITÁRIOS CUSTOMIZADOS */
+        .text-neon { color: #00F0FF; text-shadow: 0 0 15px rgba(0, 240, 255, 0.5); }
+        .text-profit { color: #10B981; text-shadow: 0 0 15px rgba(16, 185, 129, 0.5); }
+        .border-neon { border-color: rgba(0, 240, 255, 0.3); }
+        .bg-neon-glow { background: radial-gradient(circle, rgba(0,240,255,0.15) 0%, transparent 70%); }
     </style>
     
     <script>
@@ -72,41 +62,182 @@
 </head>
 <body>
 
-    <div class="glass-panel w-full max-w-6xl rounded-3xl p-6 md:p-10 relative overflow-hidden">
+    <main class="w-full max-w-5xl glass-panel rounded-3xl p-6 md:p-12 relative overflow-hidden">
         
-        <div class="absolute -top-20 -right-20 w-64 h-64 md:w-96 md:h-96 bg-cyan-500/10 rounded-full blur-[80px] pointer-events-none"></div>
+        <div class="absolute -top-[200px] -right-[200px] w-[500px] h-[500px] bg-neon-glow rounded-full pointer-events-none"></div>
 
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-end border-b border-white/10 pb-6 mb-8 gap-6">
-            <div>
-                <div class="flex items-center gap-3 mb-2">
-                    <i data-lucide="zap" class="text-neon w-6 h-6 md:w-8 md:h-8"></i>
-                    <h1 class="text-2xl md:text-3xl font-black italic tracking-tighter text-white">TECHNOBOLT <span class="text-gray-500">SOLUTIONS</span></h1>
+        <header class="flex flex-col md:flex-row justify-between items-start md:items-end border-b border-white/10 pb-8 mb-10 gap-6">
+            <div class="space-y-2">
+                <div class="flex items-center gap-3">
+                    <i data-lucide="zap" class="text-neon w-8 h-8"></i>
+                    <h1 class="text-3xl md:text-4xl font-black italic tracking-tighter text-white">TECHNOBOLT <span class="text-gray-600">SOLUTIONS</span></h1>
                 </div>
-                <div class="flex flex-wrap items-center gap-3">
-                    <span class="px-3 py-1 bg-cyan-500/10 text-neon text-[10px] font-bold uppercase rounded border border-cyan-500/20">Pre-Revenue Seed</span>
-                    <p class="text-gray-400 text-[10px] uppercase tracking-widest">Exclusive for <span class="text-white font-bold">Jânio</span></p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-3 py-1 bg-neon/10 text-neon text-[10px] font-bold uppercase rounded border border-neon/20">Seed Round</span>
+                    <p class="text-gray-400 text-[10px] uppercase tracking-widest pt-1">Exclusive for <span class="text-white font-bold">Jânio</span></p>
                 </div>
             </div>
-            <div class="glass-card px-6 py-3 rounded-xl border-l-4 border-[#10B981]">
-                <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Target Valuation (Exit)</p>
-                <p class="text-2xl font-black text-profit">R$ 15M - R$ 20M</p>
+            
+            <div class="w-full md:w-auto glass-card px-6 py-4 rounded-xl border-l-4 border-profit">
+                <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Exit Valuation Target</p>
+                <p class="text-3xl font-black text-profit">R$ 15M - R$ 20M</p>
             </div>
+        </header>
+
+        <section class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            <div class="glass-card p-5 rounded-2xl">
+                <p class="text-gray-500 text-[10px] uppercase font-bold mb-1">Investimento</p>
+                <p class="text-2xl font-black text-white">R$ 150k</p>
+            </div>
+            <div class="glass-card p-5 rounded-2xl">
+                <p class="text-gray-500 text-[10px] uppercase font-bold mb-1">Equity</p>
+                <p class="text-2xl font-black text-white">10%</p>
+            </div>
+            <div class="glass-card p-5 rounded-2xl">
+                <p class="text-gray-500 text-[10px] uppercase font-bold mb-1">Runway</p>
+                <p class="text-2xl font-black text-white">12 Meses</p>
+            </div>
+            <div class="glass-card p-5 rounded-2xl bg-profit/5 border-profit/20">
+                <p class="text-profit text-[10px] uppercase font-bold mb-1">Unit Economics</p>
+                <p class="text-2xl font-black text-profit">LTV:CAC 5.0</p>
+            </div>
+        </section>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            
+            <div class="space-y-8">
+                <h3 class="text-lg font-bold flex items-center gap-2 text-neon">
+                    <i data-lucide="pie-chart" class="w-5 h-5"></i> Alocação de Capital
+                </h3>
+                
+                <div class="glass-card p-6 rounded-2xl border-l-2 border-white/20 relative">
+                    <h4 class="text-xs font-bold uppercase tracking-widest text-gray-500 mb-6">Investimento de R$ 150k</h4>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between text-[11px] font-bold mb-2">
+                                <span class="text-neon flex items-center gap-2"><i data-lucide="target" class="w-3 h-3"></i> MARKETING & ADS</span>
+                                <span>R$ 75.000 (50%)</span>
+                            </div>
+                            <div class="w-full bg-gray-800 rounded-full h-2 overflow-hidden">
+                                <div class="bg-neon h-full w-[50%] shadow-[0_0_10px_#00F0FF]"></div>
+                            </div>
+                            <p class="text-[10px] text-gray-500 mt-1">Aquisição agressiva de clientes B2B.</p>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between text-[11px] font-bold mb-2">
+                                <span class="text-white flex items-center gap-2"><i data-lucide="clock" class="w-3 h-3"></i> RUNWAY & OPERAÇÃO</span>
+                                <span>R$ 45.000 (30%)</span>
+                            </div>
+                            <div class="w-full bg-gray-800 rounded-full h-2 overflow-hidden">
+                                <div class="bg-white h-full w-[30%]"></div>
+                            </div>
+                            <p class="text-[10px] text-gray-500 mt-1">Foco total do founder na expansão.</p>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between text-[11px] font-bold mb-2">
+                                <span class="text-accent flex items-center gap-2"><i data-lucide="shield" class="w-3 h-3"></i> LEGAL & INFRA</span>
+                                <span>R$ 30.000 (20%)</span>
+                            </div>
+                            <div class="w-full bg-gray-800 rounded-full h-2 overflow-hidden">
+                                <div class="bg-accent h-full w-[20%]"></div>
+                            </div>
+                            <p class="text-[10px] text-gray-500 mt-1">CNPJ, Patentes e Servidores Cloud.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3 pt-4">
+                    <div class="glass-card p-3 rounded-lg text-center border-b border-neon">
+                        <span class="block text-xs font-bold">Governance</span>
+                        <span class="text-[9px] text-gray-500">High Margin</span>
+                    </div>
+                    <div class="glass-card p-3 rounded-lg text-center border-b border-amber-500">
+                        <span class="block text-xs font-bold">Autopeças</span>
+                        <span class="text-[9px] text-gray-500">Volume</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col h-full">
+                <h3 class="text-lg font-bold mb-8 flex items-center gap-2 text-profit">
+                    <i data-lucide="trending-up" class="w-5 h-5"></i> Projeção de Receita (MRR)
+                </h3>
+
+                <div class="glass-card p-6 rounded-2xl flex-1 flex flex-col justify-end border border-profit/20 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-profit/5 pointer-events-none"></div>
+                    
+                    <div class="flex justify-between items-center mb-auto">
+                        <div>
+                            <h4 class="text-[10px] font-bold uppercase text-gray-400">Escala de 24 Meses</h4>
+                            <p class="text-[9px] text-gray-600">Baseado em reinvestimento de Ads</p>
+                        </div>
+                        <span class="text-[9px] bg-profit/20 text-profit px-2 py-1 rounded font-bold">Growth</span>
+                    </div>
+
+                    <div class="flex items-end justify-between h-48 gap-2 mt-8 md:gap-4">
+                        
+                        <div class="w-full flex flex-col items-center group">
+                            <span class="text-[10px] font-bold text-gray-500 mb-2">R$ 0</span>
+                            <div class="w-full bg-gray-800 rounded-t-sm h-1"></div>
+                            <span class="text-[9px] font-bold text-gray-600 mt-2">Start</span>
+                        </div>
+
+                        <div class="w-full flex flex-col items-center group">
+                            <span class="text-[10px] font-bold text-gray-400 mb-2 group-hover:text-white transition-colors">15k</span>
+                            <div class="w-full bg-gray-700 rounded-t-sm bar-animate group-hover:bg-gray-600 transition-colors" style="height: 15%"></div>
+                            <span class="text-[9px] font-bold text-gray-500 mt-2">M6</span>
+                        </div>
+
+                        <div class="w-full flex flex-col items-center group">
+                            <span class="text-[10px] font-bold text-gray-300 mb-2 group-hover:text-white transition-colors">45k</span>
+                            <div class="w-full bg-gray-600 rounded-t-sm bar-animate group-hover:bg-gray-500 transition-colors" style="height: 30%"></div>
+                            <span class="text-[9px] font-bold text-gray-500 mt-2">M12</span>
+                        </div>
+
+                        <div class="w-full flex flex-col items-center group">
+                            <span class="text-[10px] font-bold text-gray-200 mb-2 group-hover:text-white transition-colors">90k</span>
+                            <div class="w-full bg-profit/40 rounded-t-sm bar-animate group-hover:bg-profit/60 transition-colors" style="height: 55%"></div>
+                            <span class="text-[9px] font-bold text-gray-500 mt-2">M18</span>
+                        </div>
+
+                        <div class="w-full flex flex-col items-center group">
+                            <span class="text-xs font-black text-profit mb-2 group-hover:scale-110 transition-transform">200k</span>
+                            <div class="w-full bg-profit rounded-t-sm bar-animate shadow-[0_0_20px_#10B981]" style="height: 100%"></div>
+                            <span class="text-[9px] font-bold text-profit mt-2">M24</span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="mt-6 flex gap-2 overflow-x-auto pb-2">
+                    <span class="px-3 py-1 glass-card rounded text-[10px] font-bold text-gray-400 whitespace-nowrap">TOTVS</span>
+                    <span class="px-3 py-1 glass-card rounded text-[10px] font-bold text-gray-400 whitespace-nowrap">LINX</span>
+                    <span class="px-3 py-1 glass-card rounded text-[10px] font-bold text-gray-400 whitespace-nowrap">STONE</span>
+                    <span class="px-3 py-1 glass-card rounded text-[10px] font-bold text-gray-400 whitespace-nowrap">VORTX</span>
+                </div>
+            </div>
+
         </div>
 
-        <div class="grid grid-kpi gap-4 mb-10">
-            <div class="glass-card p-4 rounded-xl">
-                <p class="text-gray-500 text-[10px] uppercase font-bold mb-1">Investimento (Ask)</p>
-                <p class="text-xl md:text-2xl font-black text-white">R$ 150k</p>
+        <footer class="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+            <p class="text-[10px] text-gray-600 uppercase tracking-widest">
+                Strictly Confidential for Jânio • 2026
+            </p>
+            <div class="flex items-center gap-2 text-[10px] font-bold text-gray-600 uppercase">
+                <i data-lucide="lock" class="w-3 h-3"></i> IP Protected & INPI Registered
             </div>
-            <div class="glass-card p-4 rounded-xl">
-                <p class="text-gray-500 text-[10px] uppercase font-bold mb-1">Equity</p>
-                <p class="text-xl md:text-2xl font-black text-white">10%</p>
-            </div>
-            <div class="glass-card p-4 rounded-xl">
-                <p class="text-gray-500 text-[10px] uppercase font-bold mb-1">Runway</p>
-                <p class="text-xl md:text-2xl font-black text-white">12 Meses</p>
-            </div>
-            <div class="glass-card p-4 rounded-xl bg-green-500/5 border-green-500/20">
+        </footer>
+
+    </main>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
                 <p class="text-gray-500 text-[10px] uppercase font-bold mb-1">Valuation</p>
                 <p class="text-xl md:text-2xl font-black text-profit">R$ 1.5M</p>
             </div>
